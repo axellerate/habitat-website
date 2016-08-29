@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import Background from '../images/ocean-boat.jpg';
+import $ from 'jquery'; 
 
 var windowHeight = window.innerHeight - 100;
 
 var naturePortStyle = {
   height: windowHeight + "px",
   width: "100%",
-  backgroundImage: "url('https://static.pexels.com/photos/33545/sunrise-phu-quoc-island-ocean.jpg')",
+  backgroundImage: "url(" + Background + ")",
   backgroundPosition: "100% 100%",
   backgroundSize: "cover",
   backgroundAttachment: "fixed",
@@ -15,7 +17,7 @@ var naturePortStyle = {
 var messageOneStyle = {
   float: "left",
   fontSize: "1.6em",
-  fontWeight: "bold",
+  fontFamily: "'Ubuntu', sans-serif",
   color: "#fff",
   marginTop: "60px",
   marginLeft: "20%"
@@ -24,21 +26,30 @@ var messageOneStyle = {
 var messageTwoStyle = {
   float: "right",
   fontSize: "1.6em",
-  fontWeight: "bold",
+  fontFamily: "'Ubuntu', sans-serif",
   color: "#fff",
   marginTop: windowHeight - 90 + "px",
   marginRight: "20%"
 };
 
-class NaturePort extends Component {
+class TopSection extends Component {
+
+  componentDidMount() {
+    $("#message-one").hide();
+    $("#message-two").hide();
+
+    $("#message-one").delay( 1500 ).fadeIn( 2000 );
+    $("#message-two").delay( 3000 ).fadeIn( 2000 );
+  }
+
   render() {
     return (
       <section style={ naturePortStyle }>
-        <div style={ messageOneStyle }>Taking steps toward...</div>
-        <div style={ messageTwoStyle }>...a sustainable home.</div>
+        <div style={ messageOneStyle } id="message-one">Taking steps toward...</div>
+        <div style={ messageTwoStyle } id="message-two">...a sustainable home.</div>
       </section>
     );
   }
 }
 
-export default NaturePort;
+export default TopSection;

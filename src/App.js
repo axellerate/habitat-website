@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
-import NaturePort from './components/NaturePort';
+import TopSection from './components/TopSection';
 import EarthSection from './components/EarthSection';
 import $ from 'jquery';
 
@@ -16,7 +16,7 @@ class App extends Component {
     return (
       <div>
         <Header clickAction={ this.menuButtonClicked.bind(this) }/>
-        <NaturePort />
+        <TopSection visible={ true } />
         <EarthSection className="section" visible={ true } />
       </div>
     );

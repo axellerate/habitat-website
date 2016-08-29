@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LogoImage from '../images/habitat_logo.png';
+import AndroidIcon from '../images/android-icon.png';
 import $ from 'jquery'; 
 
 var headerStyle = {
@@ -7,7 +8,9 @@ var headerStyle = {
 	height: "100px",
 	width: "100%",
 	background: "#333333",
-	position: "fixed"
+	position: "fixed",
+	fontFamily: "'Open Sans', sans-serif"
+
 };
 
 var logoStyle = {
@@ -52,8 +55,21 @@ var statsButtonStyle = {
 };
 
 var learnMoreButtonStyle = {
+	marginRight: "20px",
 	color: "#fff",
 	cursor: "pointer"
+};
+
+var downloadAppButtonStyle = {
+	color: "#fff",
+	cursor: "pointer"
+};
+
+var androidIconStyle = {
+	position: "absolute",
+	height: "30px",
+	marginTop: "-3px",
+	marginLeft: "150px"
 };
 
 class Header extends Component {
@@ -67,7 +83,7 @@ class Header extends Component {
 	}
 
 	scrollDown() {
-		
+
 	}
 
 	buttonClicked(action) {
@@ -90,6 +106,10 @@ class Header extends Component {
       		<span style={ learnMoreButtonStyle } id="learn-more-button"
       			onClick={ () => {this.buttonClicked("/learn-more")} }>
       			Learn More
+      		</span>
+      		<span style={ downloadAppButtonStyle } id="download-app-button"
+      			onClick={ () => {this.buttonClicked("/download-app")} }>
+      			<img style={ androidIconStyle } src={ AndroidIcon } /> Download the App
       		</span>
       	</menu>
       	<menu style={ loginRegisterMenuStyle }>
