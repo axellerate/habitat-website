@@ -6,7 +6,8 @@ var headerStyle = {
 	display: "flex",
 	height: "100px",
 	width: "100%",
-	background: "#333333"
+	background: "#333333",
+	position: "fixed"
 };
 
 var logoStyle = {
@@ -63,6 +64,10 @@ class Header extends Component {
 		}, function() {
       $(this).css("text-decoration","none");
     });
+	}
+
+	scrollDown() {
+		
 	}
 
 	buttonClicked(action) {

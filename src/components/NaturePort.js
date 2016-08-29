@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 
+var windowHeight = window.innerHeight - 100;
+
 var naturePortStyle = {
-  height: "300px",
+  height: windowHeight + "px",
   width: "100%",
   backgroundImage: "url('https://static.pexels.com/photos/33545/sunrise-phu-quoc-island-ocean.jpg')",
-  backgroundPosition: "50% 50%",
-  backgroundSize: "100%"
+  backgroundPosition: "100% 100%",
+  backgroundSize: "cover",
+  backgroundAttachment: "fixed",
+  paddingTop: "100px"
 };
 
 var messageOneStyle = {
@@ -22,7 +26,7 @@ var messageTwoStyle = {
   fontSize: "1.6em",
   fontWeight: "bold",
   color: "#fff",
-  marginTop: "220px",
+  marginTop: windowHeight - 90 + "px",
   marginRight: "20%"
 };
 
