@@ -22,11 +22,11 @@ var logoStyle = {
 
 var mainMenuStyle = {
 	marginLeft: "50px",
-	marginTop: "45px"
+	marginTop: "40px"
 };
 
 var loginRegisterMenuStyle = {
-	marginTop: "45px",
+	marginTop: "40px",
 	color: "#fff",
 	marginLeft: "auto",
 	marginRight: "40px"
