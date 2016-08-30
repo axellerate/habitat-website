@@ -7,12 +7,13 @@ import $ from 'jquery';
 
 var earthSectionStyle = {
   width: "100%",
-  height: "400px",
-  background: "#eee",
+  height: "auto",
+  background: "#fff",
   fontFamily: "'Ubuntu', sans-serif",
-  fontSize: "1.6em",
+  fontSize: "1.4em",
   color: "#666666",
-  paddingTop: "50px"
+  paddingTop: "50px",
+  paddingBottom: "50px"
 };
 
 var imageSectionStyle = {
@@ -38,7 +39,8 @@ var pieChartStyle = {
   background: "yellowgreen",
   backgroundImage: "linear-gradient(to right, transparent 50%, #655 0)",
   textAlign: "center",
-  color: "#eee"
+  color: "#eee",
+  marginBottom: "50px"
 };
 
 var forestIconStyle = {
@@ -86,9 +88,10 @@ class EarthSection extends Component {
         </div>
         <div style={ contentSectionStyle }>
           <div style={ contentStyle }>
-            <p>Habit@ helps you track your carbon emissions through a system that monitors home and transport usage. </p>
-            <p>The application learns about your habits, and help you make informed decisions about how to live 
-            life in a sustainable fashion.</p>
+            <p>Habit@ helps you track your carbon emissions through a system that monitors home and transport energy usage. </p>
+            <p>Using your greenhouse gas emissions, Habit@ suggests simple ways to help lower your carbon footprint in order to 
+            keep a healthy balance between sustainability and enjoyability.
+            </p>
           </div>
         </div>
       </section>

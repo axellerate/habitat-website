@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import LogoImage from '../images/habitat_logo.png';
 import AndroidIcon from '../images/android-icon.png';
+import { Link } from "react-router";
+
 import $ from 'jquery'; 
 
 var headerStyle = {
@@ -33,34 +35,42 @@ var loginRegisterMenuStyle = {
 };
 
 var loginButtonStyle = {
+	color: "#fff",
+	textDecoration: "none",
 	marginRight: "20px",
 	cursor: "pointer"
 };
 
 var registerButtonStyle = {
+	color: "#fff",
+	textDecoration: "none",
 	marginLeft: "20px",
 	cursor: "pointer"
 };
 
 var theWorldButtonStyle = {
+	textDecoration: "none",
 	marginRight: "20px",
 	color: "#fff",
 	cursor: "pointer"
 };
 
 var statsButtonStyle = {
+	textDecoration: "none",
 	marginRight: "20px",
 	color: "#fff",
 	cursor: "pointer"
 };
 
 var learnMoreButtonStyle = {
+	textDecoration: "none",
 	marginRight: "20px",
 	color: "#fff",
 	cursor: "pointer"
 };
 
 var downloadAppButtonStyle = {
+	textDecoration: "none",
 	color: "#fff",
 	cursor: "pointer"
 };
@@ -75,7 +85,7 @@ var androidIconStyle = {
 class Header extends Component {
 
 	componentDidMount() {
-		$("span").hover(function(){
+		$(".menu-item").hover(function(){
 			$(this).css("text-decoration","underline");
 		}, function() {
       $(this).css("text-decoration","none");
@@ -93,34 +103,30 @@ class Header extends Component {
   render() {
     return (
       <header style={ headerStyle }>
-        <img style={ logoStyle } src={ LogoImage } alt="Habit@ Logo" role="presentation"/>
+      	<Link to="/">
+        	<img style={ logoStyle } src={ LogoImage } alt="Habit@ Logo" role="presentation"/>
+        </Link>
       	<menu style={ mainMenuStyle }>
-					<span style={ theWorldButtonStyle } id="login-button" 
-						onClick={ () => {this.buttonClicked("/the-world")} }>
+					<Link style={ theWorldButtonStyle } className="menu-item" id="login-button" to="">
 						The World
-					</span>
-      		<span style={ statsButtonStyle } id="stats-button"
-      			onClick={ () => {this.buttonClicked("/stats")} }>
+					</Link>
+      		<Link style={ statsButtonStyle } className="menu-item" id="stats-button" to="">
       			Stats
-      		</span>
-      		<span style={ learnMoreButtonStyle } id="learn-more-button"
-      			onClick={ () => {this.buttonClicked("/learn-more")} }>
+      		</Link>
+      		<Link style={ learnMoreButtonStyle } className="menu-item" id="learn-more-button" to="">
       			Learn More
-      		</span>
-      		<span style={ downloadAppButtonStyle } id="download-app-button"
-      			onClick={ () => {this.buttonClicked("/download-app")} }>
+      		</Link>
+      		<Link style={ downloadAppButtonStyle } className="menu-item" id="download-app-button" to="">
       			<img style={ androidIconStyle } src={ AndroidIcon } /> Download the App
-      		</span>
+      		</Link>
       	</menu>
       	<menu style={ loginRegisterMenuStyle }>
-      		<span style={ loginButtonStyle } id="login-button"
-      			onClick={ () => {this.buttonClicked("/login")} }>
+      		<Link style={ loginButtonStyle } className="menu-item" id="login-button" to="login">
       			Login
-      		</span>
-      		<span style={ registerButtonStyle } id="register-button"
-      			onClick={ () => {this.buttonClicked("/register")} }>
+      		</Link>
+      		<Link style={ registerButtonStyle } className="menu-item" id="register-button" to="register">
       			Register
-      		</span>
+      		</Link>
       	</menu>
       </header>
     );
