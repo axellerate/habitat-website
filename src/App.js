@@ -6,18 +6,12 @@ import $ from 'jquery';
 
 class App extends Component {
 
-	menuButtonClicked(action) {
-		$(".section").each(function(){
-			$(this).hide();
-		});
-	}
-
   render() {
     return (
       <div>
-        <Header clickAction={ this.menuButtonClicked.bind(this) }/>
-        <TopSection visible={ true } />
-        <EarthSection className="section" visible={ true } />
+        <Header />
+        <TopSection />
+        <EarthSection />
       </div>
     );
   }

@@ -18,13 +18,15 @@ var earthSectionStyle = {
 
 var imageSectionStyle = {
   float: "left",
-  width: "50%"
+  width: "50%",
+  display: "none"
 };
 
 var contentSectionStyle = {
   float: "right",
   width: "50%",
-  lineHeight: "50px"
+  lineHeight: "50px",
+  display: "none"
 };
 
 var contentStyle = {
@@ -56,38 +58,62 @@ var factoryIconStyle = {
   marginLeft: "30px"
 };
 
+  $.fn.is_on_screen = function(){
+    var win = $(window);
+    var viewport = {
+        top : win.scrollTop(),
+        left : win.scrollLeft()
+    };
+    viewport.right = viewport.left + win.width();
+    viewport.bottom = viewport.top + win.height();
+ 
+    var bounds = this.offset();
+    bounds.right = bounds.left + this.outerWidth();
+    bounds.bottom = bounds.top + this.outerHeight();
+ 
+    return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+  };
+ 
 class EarthSection extends Component {
 
   componentDidMount() {
-    console.log(this.props.visible);
-    if (this.props.visible) {
-      $("#section").show();
-    } else {
-      $("#section").hide();
-    }
-  }
+    $.fn.is_on_screen = function(){
+      var win = $(window);
+      var viewport = {
+          top : win.scrollTop(),
+          left : win.scrollLeft()
+      };
+      viewport.right = viewport.left + win.width();
+      viewport.bottom = viewport.top + win.height();
+   
+      var bounds = this.offset();
+      bounds.right = bounds.left + this.outerWidth();
+      bounds.bottom = bounds.top + this.outerHeight();
+   
+      return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+    };
 
-  isScrolledIntoView(elem) {
-    var docViewTop = $(window).scrollTop();
-    var docViewBottom = docViewTop + $(window).height();
-
-    var elemTop = $(elem).offset().top;
-    var elemBottom = elemTop + $(elem).height();
-
-    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+    $(window).scroll(function(){ 
+      if( $('#section').length > 0 ) { 
+        if( $('#section').is_on_screen() ) { 
+          $("#pie-chart-section").fadeIn( 3000 );
+          $("#content-section").delay( 2000 ).fadeIn( 1000 );
+        }
+      }
+    });
   }
 
   render() {
     return (
       <section style={ earthSectionStyle } id="section">
-        <div style={ imageSectionStyle }>
+        <div id="pie-chart-section" style={ imageSectionStyle }>
           <div id="pie-chart" style={ pieChartStyle }>
             <img style={ forestIconStyle } src={ ForestIcon} />
             <img style={ factoryIconStyle } src={ FactoryIcon } />
           </div>
         </div>
-        <div style={ contentSectionStyle }>
-          <div style={ contentStyle }>
+        <div id="content-section" style={ contentSectionStyle }>
+          <div id="content" style={ contentStyle }>
             <p>Habit@ helps you track your carbon emissions through a system that monitors home and transport energy usage. </p>
             <p>Using your greenhouse gas emissions, Habit@ suggests simple ways to help lower your carbon footprint in order to 
             keep a healthy balance between sustainability and enjoyability.
