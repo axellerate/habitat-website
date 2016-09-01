@@ -6,6 +6,10 @@ import $ from 'jquery';
 
 class App extends Component {
 
+	isLoading() {
+
+	}
+
   render() {
     return (
       <div>
