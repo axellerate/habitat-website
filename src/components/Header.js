@@ -107,8 +107,8 @@ class Header extends Component {
         	<img style={ logoStyle } src={ LogoImage } alt="Habit@ Logo" role="presentation"/>
         </Link>
       	<menu style={ mainMenuStyle }>
-					<Link style={ theWorldButtonStyle } className="menu-item" id="login-button" to="">
-						The World
+					<Link style={ theWorldButtonStyle } className="menu-item" id="what-is-button" to="what-is-habit@">
+						What is Habit@?
 					</Link>
       		<Link style={ statsButtonStyle } className="menu-item" id="stats-button" to="">
       			Stats

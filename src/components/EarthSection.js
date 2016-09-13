@@ -7,7 +7,7 @@ import $ from 'jquery';
 
 var earthSectionStyle = {
   width: "100%",
-  height: "auto",
+  height: "350px",
   background: "#fff",
   fontFamily: "'Ubuntu', sans-serif",
   fontSize: "1.4em",
@@ -57,22 +57,6 @@ var factoryIconStyle = {
   marginTop: "100px",
   marginLeft: "30px"
 };
-
-  $.fn.is_on_screen = function(){
-    var win = $(window);
-    var viewport = {
-        top : win.scrollTop(),
-        left : win.scrollLeft()
-    };
-    viewport.right = viewport.left + win.width();
-    viewport.bottom = viewport.top + win.height();
- 
-    var bounds = this.offset();
-    bounds.right = bounds.left + this.outerWidth();
-    bounds.bottom = bounds.top + this.outerHeight();
- 
-    return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
-  };
  
 class EarthSection extends Component {
 
@@ -96,8 +80,8 @@ class EarthSection extends Component {
     $(window).scroll(function(){ 
       if( $('#section').length > 0 ) { 
         if( $('#section').is_on_screen() ) { 
-          $("#pie-chart-section").fadeIn( 3000 );
-          $("#content-section").delay( 2000 ).fadeIn( 1000 );
+          $("#pie-chart-section").fadeIn( 2000 );
+          $("#content-section").delay( 1000 ).fadeIn( 500 );
         }
       }
     });

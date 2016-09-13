@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import TopSection from './components/TopSection';
 import EarthSection from './components/EarthSection';
+import ForestSection from './components/ForestSection';
 import $ from 'jquery';
 
 class App extends Component {
 
-	isLoading() {
+	getInitialState() {
+		
+	}
 
+	isLoading() {
+		console.log("loading");
 	}
 
   render() {
@@ -15,6 +20,8 @@ class App extends Component {
       <div>
         <Header />
         <TopSection />
+        <EarthSection />
+        <ForestSection />
         <EarthSection />
       </div>
     );
